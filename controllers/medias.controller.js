@@ -18,7 +18,7 @@ export const uploadImageController = async (req, res, next) => {
 
   try {
     const result = await cloudinary.uploader.upload(imagePath, options);
-    fsPromise.unlink(imagePath);
+    await fsPromise.unlink(imagePath);
     return res.json({
       message: "Upload image successfully",
       result: {
