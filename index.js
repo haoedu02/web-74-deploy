@@ -2,14 +2,17 @@ import express from "express";
 import databaseService from "./services/database.service.js";
 import userRoute from "./routes/users.routes.js";
 import { config } from "dotenv";
+import mediaRoute from "./routes/medias.routes.js";
 const app = express();
 const PORT = 4000;
+config();
 
 app.use(express.json());
 
 databaseService.run();
 
 app.use("/users", userRoute);
+app.use("/medias", mediaRoute);
 
 app.use((err, req, res, next) => {
   return res.json({
