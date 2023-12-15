@@ -1,6 +1,7 @@
-import fs from "fs";
 import fsPromise from "fs/promises";
 import { v2 as cloudinary } from "cloudinary";
+import { config } from "dotenv";
+config();
 
 cloudinary.config({
   secure: true,
