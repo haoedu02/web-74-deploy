@@ -7,6 +7,7 @@ const app = express();
 const PORT = 4000;
 config();
 
+app.use(express.static("."));
 app.use(express.json());
 
 databaseService.run();
